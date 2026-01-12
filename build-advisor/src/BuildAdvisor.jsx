@@ -17,7 +17,7 @@
  * 5. The public/build-orders JSON folder is served statically; use the Python ingestion script to update before deploying.
  */
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useRef } from "react";
 
 const DEFAULT_BUILD = {
   name: "Sample Terran Macro Opener",
@@ -54,6 +54,8 @@ export default function BuildAdvisor() {
     const saved = localStorage.getItem("build-advisor:build");
     return saved ? JSON.parse(saved) : DEFAULT_BUILD;
   });
+  const [muted, setMuted] = useState(false);
+  const audioRef = useRef(null);
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}build-orders/index.json`)
@@ -81,6 +83,22 @@ export default function BuildAdvisor() {
       return { ...step, start, end };
     });
   }, [build]);
+
+  const visibleSteps = useMemo(() => {
+    const done = enrichedSteps.filter(s => seconds >= s.end);
+    const lastDone = done.slice(-2);
+    const remaining = enrichedSteps.filter(s => seconds < s.end);
+
+    // Audio notification on new completed step
+    if (done.length > 0 && !muted) {
+      const lastStep = done[done.length - 1];
+      if (audioRef.current && seconds === lastStep.end) {
+        audioRef.current.play().catch(() => {});
+      }
+    }
+
+    return [...lastDone, ...remaining];
+  }, [enrichedSteps, seconds, muted]);
 
   async function loadLocalBuild(buildId) {
     try {
@@ -117,14 +135,6 @@ export default function BuildAdvisor() {
     }
   }
 
-  // Only keep last 2 completed actions
-  const visibleSteps = useMemo(() => {
-    const done = enrichedSteps.filter(s => seconds >= s.end);
-    const lastDone = done.slice(-2);
-    const remaining = enrichedSteps.filter(s => seconds < s.end);
-    return [...lastDone, ...remaining];
-  }, [enrichedSteps, seconds]);
-
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100 p-6">
       <header className="mb-6">
@@ -132,10 +142,13 @@ export default function BuildAdvisor() {
         <p className="opacity-70">{build.name} • {build.race}</p>
       </header>
 
-      <div className="flex flex-wrap gap-2 mb-4">
+      <div className="flex flex-wrap gap-2 mb-4 items-center">
         <button onClick={() => setRunning(true)} className="px-4 py-2 rounded-xl bg-green-600">Start</button>
         <button onClick={() => setRunning(false)} className="px-4 py-2 rounded-xl bg-yellow-600">Pause</button>
         <button onClick={() => { setRunning(false); setSeconds(0); }} className="px-4 py-2 rounded-xl bg-red-600">Reset</button>
+        <button onClick={() => setMuted(m => !m)} className={`ml-4 p-2 rounded-full transition ${muted ? 'bg-red-600' : 'bg-green-600'}`}>
+          {muted ? '🔇' : '🔊'}
+        </button>
       </div>
 
       <div className="mb-6">
@@ -173,7 +186,7 @@ export default function BuildAdvisor() {
         </div>
       </div>
 
-      <p className="mb-4 text-lg">Game Time: <strong>{formatTime(seconds)}</strong></p>
+      <p className="mb-4 text-lg flex items-center gap-2">Game Time: <strong>{formatTime(seconds)}</strong></p>
 
       <div className="grid gap-3">
         {visibleSteps.map((step, i) => {
@@ -197,6 +210,9 @@ export default function BuildAdvisor() {
           );
         })}
       </div>
+
+      {/* Audio element for notifications */}
+      <audio ref={audioRef} src={`${import.meta.env.BASE_URL}audio/notification.mp3`} preload="auto" />
     </div>
   );
 }
