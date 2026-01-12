@@ -1,5 +1,3 @@
-import { useEffect, useMemo, useState } from "react";
-
 /**
  * PHASE 2 – LOCAL JSON BUILD LOADING (GITHUB PAGES FRIENDLY)
  * - Mobile-friendly
@@ -19,15 +17,17 @@ import { useEffect, useMemo, useState } from "react";
  * 5. The public/build-orders JSON folder is served statically; use the Python ingestion script to update before deploying.
  */
 
+import React, { useEffect, useMemo, useState } from "react";
+
 const DEFAULT_BUILD = {
   name: "Sample Terran Macro Opener",
   race: "Terran",
   steps: [
-    { supply: 14, time: "0:18", action: "Supply Depot" },
-    { supply: 16, time: "0:38", action: "Barracks" },
-    { supply: 19, time: "1:05", action: "Refinery" },
-    { supply: 19, time: "1:20", action: "Orbital Command" },
-    { supply: 20, time: "1:45", action: "Command Center (Expand)" }
+    { supply: 14, time: "0:02", action: "Supply Depot" },
+    { supply: 16, time: "0:06", action: "Barracks" },
+    { supply: 19, time: "0:08", action: "Refinery" },
+    { supply: 19, time: "0:12", action: "Orbital Command" },
+    { supply: 20, time: "0:015", action: "Command Center (Expand)" }
   ]
 };
 
@@ -50,7 +50,6 @@ export default function BuildAdvisor() {
   const [loadingLink, setLoadingLink] = useState(false);
   const [availableBuilds, setAvailableBuilds] = useState([]);
   const [selectedBuild, setSelectedBuild] = useState("");
-
   const [build, setBuild] = useState(() => {
     const saved = localStorage.getItem("build-advisor:build");
     return saved ? JSON.parse(saved) : DEFAULT_BUILD;
@@ -118,6 +117,14 @@ export default function BuildAdvisor() {
     }
   }
 
+  // Only keep last 2 completed actions
+  const visibleSteps = useMemo(() => {
+    const done = enrichedSteps.filter(s => seconds >= s.end);
+    const lastDone = done.slice(-2);
+    const remaining = enrichedSteps.filter(s => seconds < s.end);
+    return [...lastDone, ...remaining];
+  }, [enrichedSteps, seconds]);
+
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100 p-6">
       <header className="mb-6">
@@ -169,7 +176,7 @@ export default function BuildAdvisor() {
       <p className="mb-4 text-lg">Game Time: <strong>{formatTime(seconds)}</strong></p>
 
       <div className="grid gap-3">
-        {enrichedSteps.map((step, i) => {
+        {visibleSteps.map((step, i) => {
           const active = seconds >= step.start && seconds < step.end;
           const done = seconds >= step.end;
 
