@@ -8,7 +8,7 @@
  *
  * Deployment instructions:
  * 1. In `build-advisor/`, run `npm install`.
- * 2. Use `npm run dev` to preview locally.
+ * 2. Use `npm run dev -- --host` to preview locally.
  * 3. Once ready, run `npm run build` to generate static files in `build-advisor/dist`.
  * 4. Deploy to GitHub Pages using `gh-pages` branch:
  *    - `npm install --save-dev gh-pages`
