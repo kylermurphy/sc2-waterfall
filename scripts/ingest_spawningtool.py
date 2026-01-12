@@ -6,7 +6,7 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-BUILD_DIR = Path("public/build-orders")
+BUILD_DIR = Path("build-advisor/public/build-orders")
 INDEX_FILE = BUILD_DIR / "index.json"
 
 BUILD_DIR.mkdir(parents=True, exist_ok=True)
