@@ -1,11 +1,22 @@
 import { useEffect, useMemo, useState } from "react";
 
 /**
- * PHASE 1.5 – CLIENT-SIDE SPAWNING TOOL PARSING
- * - Mobile-friendly (link-based loading)
- * - Accepts SpawningTool build URLs
- * - Attempts client-side HTML parsing
- * - Gracefully falls back on failure
+ * PHASE 2 – LOCAL JSON BUILD LOADING (GITHUB PAGES FRIENDLY)
+ * - Mobile-friendly
+ * - Loads builds from /build-orders/*.json
+ * - Dropdown + optional JSON URL input
+ * - Fully static; no web scraping
+ * - Can deploy locally and on GitHub Pages
+ *
+ * Deployment instructions:
+ * 1. In `build-advisor/`, run `npm install`.
+ * 2. Use `npm run dev` to preview locally.
+ * 3. Once ready, run `npm run build` to generate static files in `build-advisor/dist`.
+ * 4. Deploy to GitHub Pages using `gh-pages` branch:
+ *    - `npm install --save-dev gh-pages`
+ *    - Add scripts `predeploy` and `deploy` in package.json pointing to `build-advisor/dist`
+ *    - Run `npm run deploy`
+ * 5. The public/build-orders JSON folder is served statically; use the Python ingestion script to update before deploying.
  */
 
 const DEFAULT_BUILD = {
@@ -16,12 +27,7 @@ const DEFAULT_BUILD = {
     { supply: 16, time: "0:38", action: "Barracks" },
     { supply: 19, time: "1:05", action: "Refinery" },
     { supply: 19, time: "1:20", action: "Orbital Command" },
-    { supply: 20, time: "1:45", action: "Command Center (Expand)" },
-    { supply: 21, time: "1:55", action: "Command Center (Expand) 1" },
-    { supply: 22, time: "2:00", action: "Command Center (Expand) 2" },
-    { supply: 23, time: "2:10", action: "Command Center (Expand) 3" },
-    { supply: 24, time: "2:20", action: "Command Center (Expand) 4" },
-    { supply: 25, time: "2:24", action: "Command Center (Expand) 5" }
+    { supply: 20, time: "1:45", action: "Command Center (Expand)" }
   ]
 };
 
@@ -37,7 +43,6 @@ function formatTime(seconds) {
   return `${m}:${String(s).padStart(2, "0")}`;
 }
 
-
 export default function BuildAdvisor() {
   const [seconds, setSeconds] = useState(0);
   const [running, setRunning] = useState(false);
@@ -52,7 +57,6 @@ export default function BuildAdvisor() {
   });
 
   useEffect(() => {
-    // Load available build list (static index)
     fetch(`${import.meta.env.BASE_URL}build-orders/index.json`)
       .then(r => r.json())
       .then(setAvailableBuilds)
@@ -162,7 +166,6 @@ export default function BuildAdvisor() {
         </div>
       </div>
 
-
       <p className="mb-4 text-lg">Game Time: <strong>{formatTime(seconds)}</strong></p>
 
       <div className="grid gap-3">
@@ -190,4 +193,3 @@ export default function BuildAdvisor() {
     </div>
   );
 }
-
