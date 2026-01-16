@@ -73,6 +73,8 @@ export default function BuildAdvisor() {
   });
 
   const [muted, setMuted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(""); // NEW: user-visible error text
+  const [successMessage, setSuccessMessage] = useState(""); // NEW: success text(""); // NEW: user-visible error text
 
   // NEW: Screen wake lock state (mobile keep-screen-on)
   const [wakeLock, setWakeLock] = useState(null);
@@ -142,16 +144,19 @@ export default function BuildAdvisor() {
   async function loadLocalBuild(buildId) {
     try {
       setLoadingLink(true);
+      setErrorMessage("");
+      setSuccessMessage("");
       const res = await fetch(`${import.meta.env.BASE_URL}build-orders/${buildId}.json`);
       if (!res.ok) throw new Error("Build not found");
       const json = await res.json();
       if (!validateBuild(json)) throw new Error("Invalid build format");
       setBuild(json);
       setSeconds(0);
+      setSuccessMessage("Build Loaded");
       setRunning(false);
       setSelectedBuild(buildId);
-    } catch {
-      alert("Build not available locally.");
+    } catch (err) {
+      setErrorMessage(err.message || "Build not available locally.");
     } finally {
       setLoadingLink(false);
     }
@@ -160,7 +165,8 @@ export default function BuildAdvisor() {
   async function loadFromLink(url) {
     try {
       setLoadingLink(true);
-
+      setErrorMessage("");
+      setSuccessMessage("");
       // NEW: Normalize GitHub blob URLs to raw.githubusercontent.com
       let fetchUrl = url;
       if (url.includes("github.com") && url.includes("/blob/")) {
@@ -177,11 +183,12 @@ export default function BuildAdvisor() {
 
       setBuild(json);
       setSeconds(0);
+      setSuccessMessage("Build Loaded");
       setRunning(false);
       setLinkInput("");
-    } catch (err) {
+    }  catch (err) {
       console.error(err);
-      alert("Unable to load build JSON from link.");
+      setErrorMessage(err.message || "Unable to load build JSON from link.");
     } finally {
       setLoadingLink(false);
     }
@@ -190,6 +197,7 @@ export default function BuildAdvisor() {
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100 p-6">
       <header className="mb-6">
+        
         <h1 className="text-2xl font-bold">Build Advisor</h1>
         <p className="opacity-70">{build.name} • {build.race}</p>
       </header>
@@ -236,6 +244,20 @@ export default function BuildAdvisor() {
             {loadingLink ? "Loading…" : "Load"}
           </button>
         </div>
+      </div>
+
+      <div className="mb-6">
+        {successMessage && !errorMessage && (
+          <div className="mb-4 rounded-xl border border-green-700 bg-green-900/40 px-4 py-2 text-sm text-green-200">
+            {successMessage} 
+            <p className="opacity-70">{build.name} • {build.race}</p>
+          </div>
+        )}
+        {errorMessage && (
+          <div className="mb-4 rounded-xl border border-red-700 bg-red-900/40 px-4 py-2 text-sm text-red-200">
+            {errorMessage}
+          </div>
+        )}
       </div>
 
       <p className="mb-4 text-lg flex items-center gap-2">
