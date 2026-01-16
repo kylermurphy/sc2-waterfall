@@ -43,6 +43,23 @@ function formatTime(seconds) {
   return `${m}:${String(s).padStart(2, "0")}`;
 }
 
+// NEW: Validate build JSON (tolerant – allows extra keys)
+function validateBuild(json) {
+  if (!json || typeof json !== "object") return false;
+  if (typeof json.name !== "string") return false;
+  if (typeof json.race !== "string") return false;
+  if (!Array.isArray(json.steps)) return false;
+
+  for (const step of json.steps) {
+    if (!step || typeof step !== "object") return false;
+    if (typeof step.time !== "string") return false;
+    if (typeof step.supply !== "number") return false;
+    if (typeof step.action !== "string") return false;
+  }
+
+  return true;
+}
+
 export default function BuildAdvisor() {
   const [seconds, setSeconds] = useState(0);
   const [running, setRunning] = useState(false);
@@ -128,7 +145,7 @@ export default function BuildAdvisor() {
       const res = await fetch(`${import.meta.env.BASE_URL}build-orders/${buildId}.json`);
       if (!res.ok) throw new Error("Build not found");
       const json = await res.json();
-      if (!json.steps) throw new Error("Invalid build format");
+      if (!validateBuild(json)) throw new Error("Invalid build format");
       setBuild(json);
       setSeconds(0);
       setRunning(false);
@@ -156,7 +173,7 @@ export default function BuildAdvisor() {
       if (!res.ok) throw new Error("Fetch failed");
 
       const json = await res.json();
-      if (!json.steps) throw new Error("Invalid JSON build");
+      if (!validateBuild(json)) throw new Error("Invalid build format");
 
       setBuild(json);
       setSeconds(0);
