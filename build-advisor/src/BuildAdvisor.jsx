@@ -54,8 +54,30 @@ export default function BuildAdvisor() {
     const saved = localStorage.getItem("build-advisor:build");
     return saved ? JSON.parse(saved) : DEFAULT_BUILD;
   });
+
   const [muted, setMuted] = useState(false);
+
+  // NEW: Screen wake lock state (mobile keep-screen-on)
+  const [wakeLock, setWakeLock] = useState(null);
   const audioRef = useRef(null);
+
+  // NEW: Request or release screen wake lock
+  async function toggleWakeLock() {
+    try {
+      if (wakeLock) {
+        await wakeLock.release();
+        setWakeLock(null);
+      } else if ('wakeLock' in navigator) {
+        const lock = await navigator.wakeLock.request('screen');
+        setWakeLock(lock);
+        lock.addEventListener('release', () => setWakeLock(null));
+      } else {
+        alert('Screen wake lock is not supported on this device/browser.');
+      }
+    } catch (err) {
+      console.error('Wake lock error:', err);
+    }
+  }
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}build-orders/index.json`)
@@ -121,14 +143,27 @@ export default function BuildAdvisor() {
   async function loadFromLink(url) {
     try {
       setLoadingLink(true);
-      const res = await fetch(url);
+
+      // NEW: Normalize GitHub blob URLs to raw.githubusercontent.com
+      let fetchUrl = url;
+      if (url.includes("github.com") && url.includes("/blob/")) {
+        fetchUrl = url
+          .replace("https://github.com/", "https://raw.githubusercontent.com/")
+          .replace("/blob/", "/");
+      }
+
+      const res = await fetch(fetchUrl);
+      if (!res.ok) throw new Error("Fetch failed");
+
       const json = await res.json();
       if (!json.steps) throw new Error("Invalid JSON build");
+
       setBuild(json);
       setSeconds(0);
       setRunning(false);
       setLinkInput("");
-    } catch {
+    } catch (err) {
+      console.error(err);
       alert("Unable to load build JSON from link.");
     } finally {
       setLoadingLink(false);
@@ -186,7 +221,22 @@ export default function BuildAdvisor() {
         </div>
       </div>
 
-      <p className="mb-4 text-lg flex items-center gap-2">Game Time: <strong>{formatTime(seconds)}</strong></p>
+      <p className="mb-4 text-lg flex items-center gap-2">
+        Game Time: <strong>{formatTime(seconds)}</strong>
+
+        {/* NEW: Keep screen awake button (mobile-friendly) */}
+        <button
+          onClick={toggleWakeLock}
+          className={`ml-2 p-1.5 rounded-full text-sm transition ${wakeLock ? 'bg-blue-600' : 'bg-neutral-700'}`}
+          title={wakeLock ? 'Allow screen to sleep' : 'Keep screen on'}
+        >
+          {wakeLock ? '📱🔆' : '📱'}
+        </button>
+
+        <small>Screen Lock</small>
+      </p>
+
+      
 
       <div className="grid gap-3">
         {visibleSteps.map((step, i) => {
