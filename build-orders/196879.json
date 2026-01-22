@@ -1,0 +1,81 @@
+{
+  "name": "Pig Terran B2GM #1 (TvX Economic)",
+  "race": "Unknown",
+  "steps": [
+    {
+      "supply": 14,
+      "time": "0:17",
+      "action": "Supply Depot"
+    },
+    {
+      "supply": 16,
+      "time": "0:40",
+      "action": "Barracks"
+    },
+    {
+      "supply": 16,
+      "time": "0:44",
+      "action": "Refinery"
+    },
+    {
+      "supply": 19,
+      "time": "1:28",
+      "action": "Orbital Command"
+    },
+    {
+      "supply": 19,
+      "time": "1:30",
+      "action": "Barracks Tech Reactor"
+    },
+    {
+      "supply": 19,
+      "time": "1:41",
+      "action": "Command Center"
+    },
+    {
+      "supply": 20,
+      "time": "1:50",
+      "action": "Supply Depot"
+    },
+    {
+      "supply": 21,
+      "time": "2:16",
+      "action": "Factory"
+    },
+    {
+      "supply": 22,
+      "time": "2:22",
+      "action": "Refinery"
+    },
+    {
+      "supply": 23,
+      "time": "2:26",
+      "action": "Bunker"
+    },
+    {
+      "supply": 24,
+      "time": "3:10",
+      "action": "Starport"
+    },
+    {
+      "supply": 25,
+      "time": "3:50",
+      "action": "Barracks"
+    },
+    {
+      "supply": 25,
+      "time": "3:52",
+      "action": "Barracks"
+    },
+    {
+      "supply": 25,
+      "time": "3:54",
+      "action": "Barracks"
+    },
+    {
+      "supply": 25,
+      "time": "3:56",
+      "action": "Barracks"
+    }
+  ]
+}
