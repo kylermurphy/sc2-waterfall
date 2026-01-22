@@ -1,0 +1,956 @@
+{
+  "name": "TVZ Hellion and Battlecruiser open. CC spending (TvZ Timing Attack)",
+  "race": "Unknown",
+  "steps": [
+    {
+      "supply": 12,
+      "time": "0:04",
+      "action": "SCV"
+    },
+    {
+      "supply": 13,
+      "time": "0:32",
+      "action": "Supply Depot"
+    },
+    {
+      "supply": 13,
+      "time": "0:36",
+      "action": "Refinery, SCV"
+    },
+    {
+      "supply": 14,
+      "time": "0:59",
+      "action": "Barracks"
+    },
+    {
+      "supply": 14,
+      "time": "1:07",
+      "action": "SCV"
+    },
+    {
+      "supply": 15,
+      "time": "1:29",
+      "action": "SCV"
+    },
+    {
+      "supply": 16,
+      "time": "1:41",
+      "action": "SCV"
+    },
+    {
+      "supply": 17,
+      "time": "1:50",
+      "action": "Marine"
+    },
+    {
+      "supply": 17,
+      "time": "1:53",
+      "action": "SCV"
+    },
+    {
+      "supply": 19,
+      "time": "2:07",
+      "action": "Command Center"
+    },
+    {
+      "supply": 19,
+      "time": "2:15",
+      "action": "Bunker"
+    },
+    {
+      "supply": 19,
+      "time": "2:16",
+      "action": "Orbital Command"
+    },
+    {
+      "supply": 19,
+      "time": "2:17",
+      "action": "Barracks Reactor, Supply Depot"
+    },
+    {
+      "supply": 19,
+      "time": "2:35",
+      "action": "Factory"
+    },
+    {
+      "supply": 19,
+      "time": "2:54",
+      "action": "Marine x2"
+    },
+    {
+      "supply": 19,
+      "time": "2:55",
+      "action": "SCV"
+    },
+    {
+      "supply": 22,
+      "time": "3:01",
+      "action": "Refinery"
+    },
+    {
+      "supply": 22,
+      "time": "3:08",
+      "action": "SCV"
+    },
+    {
+      "supply": 23,
+      "time": "3:20",
+      "action": "SCV"
+    },
+    {
+      "supply": 24,
+      "time": "3:32",
+      "action": "Orbital Command"
+    },
+    {
+      "supply": 24,
+      "time": "3:33",
+      "action": "Starport"
+    },
+    {
+      "supply": 24,
+      "time": "3:35",
+      "action": "Hellion x2"
+    },
+    {
+      "supply": 24,
+      "time": "3:40",
+      "action": "Supply Depot"
+    },
+    {
+      "supply": 24,
+      "time": "3:41",
+      "action": "SCV"
+    },
+    {
+      "supply": 29,
+      "time": "3:59",
+      "action": "Hellion x2"
+    },
+    {
+      "supply": 29,
+      "time": "4:02",
+      "action": "SCV x2"
+    },
+    {
+      "supply": 35,
+      "time": "4:05",
+      "action": "Supply Depot"
+    },
+    {
+      "supply": 35,
+      "time": "4:14",
+      "action": "SCV"
+    },
+    {
+      "supply": 35,
+      "time": "4:15",
+      "action": "SCV"
+    },
+    {
+      "supply": 35,
+      "time": "4:16",
+      "action": "Supply Depot"
+    },
+    {
+      "supply": 37,
+      "time": "4:17",
+      "action": "Starport Tech Lab"
+    },
+    {
+      "supply": 37,
+      "time": "4:27",
+      "action": "Fusion Core, SCV"
+    },
+    {
+      "supply": 38,
+      "time": "4:31",
+      "action": "SCV"
+    },
+    {
+      "supply": 38,
+      "time": "4:35",
+      "action": "Hellion"
+    },
+    {
+      "supply": 43,
+      "time": "4:38",
+      "action": "Hellion"
+    },
+    {
+      "supply": 43,
+      "time": "4:46",
+      "action": "SCV"
+    },
+    {
+      "supply": 43,
+      "time": "4:47",
+      "action": "SCV"
+    },
+    {
+      "supply": 43,
+      "time": "4:48",
+      "action": "Supply Depot"
+    },
+    {
+      "supply": 45,
+      "time": "4:56",
+      "action": "Hellion"
+    },
+    {
+      "supply": 45,
+      "time": "4:59",
+      "action": "Hellion"
+    },
+    {
+      "supply": 49,
+      "time": "5:00",
+      "action": "SCV x2"
+    },
+    {
+      "supply": 51,
+      "time": "5:11",
+      "action": "Supply Depot"
+    },
+    {
+      "supply": 51,
+      "time": "5:12",
+      "action": "SCV"
+    },
+    {
+      "supply": 51,
+      "time": "5:13",
+      "action": "SCV"
+    },
+    {
+      "supply": 53,
+      "time": "5:20",
+      "action": "Battlecruiser"
+    },
+    {
+      "supply": 59,
+      "time": "5:25",
+      "action": "SCV x2"
+    },
+    {
+      "supply": 61,
+      "time": "5:34",
+      "action": "Factory Tech Lab"
+    },
+    {
+      "supply": 61,
+      "time": "5:37",
+      "action": "SCV x2"
+    },
+    {
+      "supply": 61,
+      "time": "5:41",
+      "action": "Marine x2"
+    },
+    {
+      "supply": 65,
+      "time": "5:49",
+      "action": "SCV x2"
+    },
+    {
+      "supply": 67,
+      "time": "5:56",
+      "action": "Siege Tank"
+    },
+    {
+      "supply": 70,
+      "time": "5:58",
+      "action": "Marine"
+    },
+    {
+      "supply": 70,
+      "time": "5:59",
+      "action": "Marine"
+    },
+    {
+      "supply": 72,
+      "time": "6:04",
+      "action": "SCV x2"
+    },
+    {
+      "supply": 74,
+      "time": "6:15",
+      "action": "Refinery"
+    },
+    {
+      "supply": 74,
+      "time": "6:16",
+      "action": "Marine x2"
+    },
+    {
+      "supply": 76,
+      "time": "6:19",
+      "action": "Supply Depot"
+    },
+    {
+      "supply": 76,
+      "time": "6:20",
+      "action": "Supply Depot"
+    },
+    {
+      "supply": 76,
+      "time": "6:24",
+      "action": "Armory"
+    },
+    {
+      "supply": 76,
+      "time": "6:34",
+      "action": "Marine x2"
+    },
+    {
+      "supply": 76,
+      "time": "6:36",
+      "action": "Command Center"
+    },
+    {
+      "supply": 76,
+      "time": "6:37",
+      "action": "Barracks"
+    },
+    {
+      "supply": 78,
+      "time": "7:03",
+      "action": "Barracks"
+    },
+    {
+      "supply": 78,
+      "time": "7:06",
+      "action": "Starport Reactor"
+    },
+    {
+      "supply": 78,
+      "time": "7:08",
+      "action": "Barracks"
+    },
+    {
+      "supply": 69,
+      "time": "7:29",
+      "action": "Marine x2"
+    },
+    {
+      "supply": 48,
+      "time": "7:46",
+      "action": "Marine"
+    },
+    {
+      "supply": 48,
+      "time": "7:47",
+      "action": "Marine"
+    },
+    {
+      "supply": 48,
+      "time": "7:48",
+      "action": "Thor"
+    },
+    {
+      "supply": 56,
+      "time": "7:52",
+      "action": "Viking x2"
+    },
+    {
+      "supply": 56,
+      "time": "7:54",
+      "action": "SCV x2"
+    },
+    {
+      "supply": 56,
+      "time": "7:58",
+      "action": "Barracks Reactor"
+    },
+    {
+      "supply": 60,
+      "time": "7:59",
+      "action": "Barracks Reactor"
+    },
+    {
+      "supply": 60,
+      "time": "8:04",
+      "action": "Marine x2"
+    },
+    {
+      "supply": 62,
+      "time": "8:08",
+      "action": "Refinery"
+    },
+    {
+      "supply": 62,
+      "time": "8:11",
+      "action": "Terran Vehicle Weapons Level 1"
+    },
+    {
+      "supply": 62,
+      "time": "8:22",
+      "action": "Marine x2"
+    },
+    {
+      "supply": 62,
+      "time": "8:25",
+      "action": "Medivac"
+    },
+    {
+      "supply": 62,
+      "time": "8:26",
+      "action": "Medivac"
+    },
+    {
+      "supply": 68,
+      "time": "8:31",
+      "action": "Stimpack"
+    },
+    {
+      "supply": 68,
+      "time": "8:34",
+      "action": "SCV"
+    },
+    {
+      "supply": 68,
+      "time": "8:39",
+      "action": "SCV"
+    },
+    {
+      "supply": 68,
+      "time": "8:40",
+      "action": "Marine x2"
+    },
+    {
+      "supply": 72,
+      "time": "8:42",
+      "action": "Marine x3"
+    },
+    {
+      "supply": 72,
+      "time": "8:43",
+      "action": "Marauder, Marine"
+    },
+    {
+      "supply": 78,
+      "time": "8:55",
+      "action": "Viking, SCV"
+    },
+    {
+      "supply": 81,
+      "time": "8:57",
+      "action": "Engineering Bay"
+    },
+    {
+      "supply": 81,
+      "time": "8:58",
+      "action": "Marine x2"
+    },
+    {
+      "supply": 81,
+      "time": "8:59",
+      "action": "Supply Depot"
+    },
+    {
+      "supply": 81,
+      "time": "9:00",
+      "action": "Orbital Command, Supply Depot"
+    },
+    {
+      "supply": 81,
+      "time": "9:02",
+      "action": "Marine x2"
+    },
+    {
+      "supply": 84,
+      "time": "9:03",
+      "action": "Marine"
+    },
+    {
+      "supply": 84,
+      "time": "9:04",
+      "action": "Marauder"
+    },
+    {
+      "supply": 84,
+      "time": "9:09",
+      "action": "Barracks"
+    },
+    {
+      "supply": 88,
+      "time": "9:12",
+      "action": "Thor"
+    },
+    {
+      "supply": 88,
+      "time": "9:13",
+      "action": "Barracks"
+    },
+    {
+      "supply": 88,
+      "time": "9:15",
+      "action": "SCV"
+    },
+    {
+      "supply": 88,
+      "time": "9:16",
+      "action": "SCV"
+    },
+    {
+      "supply": 96,
+      "time": "9:26",
+      "action": "Marauder"
+    },
+    {
+      "supply": 96,
+      "time": "9:27",
+      "action": "SCV"
+    },
+    {
+      "supply": 96,
+      "time": "9:28",
+      "action": "SCV"
+    },
+    {
+      "supply": 96,
+      "time": "9:33",
+      "action": "SCV"
+    },
+    {
+      "supply": 96,
+      "time": "9:39",
+      "action": "SCV"
+    },
+    {
+      "supply": 96,
+      "time": "9:40",
+      "action": "SCV"
+    },
+    {
+      "supply": 96,
+      "time": "9:45",
+      "action": "SCV, Medivac x2"
+    },
+    {
+      "supply": 96,
+      "time": "9:47",
+      "action": "Marauder, Marine"
+    },
+    {
+      "supply": 96,
+      "time": "9:48",
+      "action": "Marine x4"
+    },
+    {
+      "supply": 96,
+      "time": "9:51",
+      "action": "Terran Infantry Weapons Level 1, SCV"
+    },
+    {
+      "supply": 96,
+      "time": "9:52",
+      "action": "SCV"
+    },
+    {
+      "supply": 96,
+      "time": "9:58",
+      "action": "SCV, Supply Depot"
+    },
+    {
+      "supply": 96,
+      "time": "9:59",
+      "action": "Supply Depot"
+    },
+    {
+      "supply": 96,
+      "time": "10:02",
+      "action": "Supply Depot"
+    },
+    {
+      "supply": 96,
+      "time": "10:03",
+      "action": "SCV"
+    },
+    {
+      "supply": 96,
+      "time": "10:07",
+      "action": "Barracks, Factory"
+    },
+    {
+      "supply": 96,
+      "time": "10:09",
+      "action": "Barracks, Marauder, Siege Tank"
+    },
+    {
+      "supply": 96,
+      "time": "10:11",
+      "action": "Combat Shield"
+    },
+    {
+      "supply": 96,
+      "time": "10:17",
+      "action": "SCV x3"
+    },
+    {
+      "supply": 96,
+      "time": "10:19",
+      "action": "Command Center"
+    },
+    {
+      "supply": 96,
+      "time": "10:27",
+      "action": "Engineering Bay"
+    },
+    {
+      "supply": 96,
+      "time": "10:29",
+      "action": "SCV x3"
+    },
+    {
+      "supply": 96,
+      "time": "10:30",
+      "action": "Barracks, Marauder"
+    },
+    {
+      "supply": 96,
+      "time": "10:31",
+      "action": "Marine x2"
+    },
+    {
+      "supply": 96,
+      "time": "10:37",
+      "action": "Barracks Tech Lab"
+    },
+    {
+      "supply": 96,
+      "time": "10:41",
+      "action": "SCV x3"
+    },
+    {
+      "supply": 96,
+      "time": "10:42",
+      "action": "Refinery"
+    },
+    {
+      "supply": 96,
+      "time": "10:45",
+      "action": "Marine"
+    },
+    {
+      "supply": 96,
+      "time": "10:51",
+      "action": "Marauder"
+    },
+    {
+      "supply": 96,
+      "time": "10:52",
+      "action": "Refinery"
+    },
+    {
+      "supply": 96,
+      "time": "10:53",
+      "action": "SCV x2"
+    },
+    {
+      "supply": 96,
+      "time": "10:54",
+      "action": "SCV, Marine x4"
+    },
+    {
+      "supply": 96,
+      "time": "10:56",
+      "action": "Factory Tech Lab"
+    },
+    {
+      "supply": 96,
+      "time": "11:04",
+      "action": "Barracks Reactor"
+    },
+    {
+      "supply": 96,
+      "time": "11:05",
+      "action": "SCV x2"
+    },
+    {
+      "supply": 96,
+      "time": "11:06",
+      "action": "SCV"
+    },
+    {
+      "supply": 96,
+      "time": "11:07",
+      "action": "Barracks Tech Lab"
+    },
+    {
+      "supply": 96,
+      "time": "11:10",
+      "action": "Concussive Shells"
+    },
+    {
+      "supply": 96,
+      "time": "11:12",
+      "action": "Marauder, Medivac"
+    },
+    {
+      "supply": 96,
+      "time": "11:13",
+      "action": "Marauder, Barracks Tech Lab"
+    },
+    {
+      "supply": 96,
+      "time": "11:27",
+      "action": "Marine"
+    },
+    {
+      "supply": 96,
+      "time": "11:30",
+      "action": "Marine x5, Medivac"
+    },
+    {
+      "supply": 96,
+      "time": "11:31",
+      "action": "Marauder"
+    },
+    {
+      "supply": 96,
+      "time": "11:33",
+      "action": "Marauder"
+    },
+    {
+      "supply": 96,
+      "time": "11:34",
+      "action": "Marauder"
+    },
+    {
+      "supply": 96,
+      "time": "11:42",
+      "action": "Medivac"
+    },
+    {
+      "supply": 96,
+      "time": "11:47",
+      "action": "Command Center"
+    },
+    {
+      "supply": 96,
+      "time": "11:55",
+      "action": "Supply Depot"
+    },
+    {
+      "supply": 96,
+      "time": "11:57",
+      "action": "Supply Depot"
+    },
+    {
+      "supply": 96,
+      "time": "11:58",
+      "action": "Marauder x2, Marine x4, Siege Tank"
+    },
+    {
+      "supply": 96,
+      "time": "11:59",
+      "action": "Marauder x2"
+    },
+    {
+      "supply": 96,
+      "time": "12:04",
+      "action": "Barracks Tech Lab"
+    },
+    {
+      "supply": 96,
+      "time": "12:06",
+      "action": "Terran Infantry Armor Level 1"
+    },
+    {
+      "supply": 96,
+      "time": "12:09",
+      "action": "Terran Infantry Weapons Level 2"
+    },
+    {
+      "supply": 96,
+      "time": "12:17",
+      "action": "Siege Tank"
+    },
+    {
+      "supply": 96,
+      "time": "12:20",
+      "action": "Marauder x4"
+    },
+    {
+      "supply": 96,
+      "time": "12:32",
+      "action": "Marauder"
+    },
+    {
+      "supply": 96,
+      "time": "12:41",
+      "action": "Planetary Fortress"
+    },
+    {
+      "supply": 96,
+      "time": "13:16",
+      "action": "Command Center"
+    },
+    {
+      "supply": 96,
+      "time": "13:18",
+      "action": "Command Center x2"
+    },
+    {
+      "supply": 96,
+      "time": "13:29",
+      "action": "Refinery"
+    },
+    {
+      "supply": 96,
+      "time": "13:32",
+      "action": "Command Center"
+    },
+    {
+      "supply": 96,
+      "time": "13:33",
+      "action": "Command Center"
+    },
+    {
+      "supply": 96,
+      "time": "13:34",
+      "action": "Command Center"
+    },
+    {
+      "supply": 96,
+      "time": "13:35",
+      "action": "Command Center x2"
+    },
+    {
+      "supply": 96,
+      "time": "13:36",
+      "action": "Command Center, Terran Vehicle And Ship Armor Level 1"
+    },
+    {
+      "supply": 96,
+      "time": "13:43",
+      "action": "Armory x2"
+    },
+    {
+      "supply": 96,
+      "time": "13:47",
+      "action": "Orbital Command"
+    },
+    {
+      "supply": 96,
+      "time": "14:21",
+      "action": "Refinery"
+    },
+    {
+      "supply": 96,
+      "time": "14:22",
+      "action": "Refinery"
+    },
+    {
+      "supply": 96,
+      "time": "14:40",
+      "action": "Refinery"
+    },
+    {
+      "supply": 96,
+      "time": "15:30",
+      "action": "Orbital Command x2"
+    },
+    {
+      "supply": 96,
+      "time": "15:31",
+      "action": "Orbital Command"
+    },
+    {
+      "supply": 96,
+      "time": "15:39",
+      "action": "Planetary Fortress"
+    },
+    {
+      "supply": 96,
+      "time": "15:43",
+      "action": "Orbital Command x2"
+    },
+    {
+      "supply": 96,
+      "time": "16:25",
+      "action": "Orbital Command"
+    },
+    {
+      "supply": 96,
+      "time": "16:26",
+      "action": "Orbital Command x2"
+    },
+    {
+      "supply": 96,
+      "time": "16:42",
+      "action": "Factory"
+    },
+    {
+      "supply": 96,
+      "time": "16:55",
+      "action": "Factory"
+    },
+    {
+      "supply": 96,
+      "time": "17:01",
+      "action": "Starport"
+    },
+    {
+      "supply": 96,
+      "time": "17:08",
+      "action": "Starport"
+    },
+    {
+      "supply": 96,
+      "time": "17:09",
+      "action": "Factory"
+    },
+    {
+      "supply": 96,
+      "time": "17:13",
+      "action": "Starport"
+    },
+    {
+      "supply": 96,
+      "time": "18:15",
+      "action": "Factory Tech Lab"
+    },
+    {
+      "supply": 96,
+      "time": "18:16",
+      "action": "Factory Tech Lab"
+    },
+    {
+      "supply": 96,
+      "time": "19:21",
+      "action": "Thor x3"
+    },
+    {
+      "supply": 96,
+      "time": "19:27",
+      "action": "Liberator"
+    },
+    {
+      "supply": 96,
+      "time": "19:32",
+      "action": "Factory Tech Lab"
+    },
+    {
+      "supply": 96,
+      "time": "19:43",
+      "action": "Starport Reactor"
+    },
+    {
+      "supply": 96,
+      "time": "19:45",
+      "action": "Starport Reactor"
+    },
+    {
+      "supply": 96,
+      "time": "19:51",
+      "action": "Starport Reactor"
+    },
+    {
+      "supply": 96,
+      "time": "20:45",
+      "action": "Command Center"
+    }
+  ]
+}
