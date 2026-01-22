@@ -75,6 +75,9 @@ export default function BuildAdvisor() {
   const [muted, setMuted] = useState(false);
   const [errorMessage, setErrorMessage] = useState(""); // NEW: user-visible error text
   const [successMessage, setSuccessMessage] = useState(""); // NEW: success text(""); // NEW: user-visible error text
+  const fileInputRef = useRef(null); // NEW: local file loader(""); // NEW: success text(""); // NEW: user-visible error text
+  const dropRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false); // NEW: drag-over visual state
 
   // NEW: Screen wake lock state (mobile keep-screen-on)
   const [wakeLock, setWakeLock] = useState(null);
@@ -162,6 +165,33 @@ export default function BuildAdvisor() {
     }
   }
 
+// NEW: Load build from local file (shared by file input + drag/drop)
+  async function loadFromFile(file) {
+    try {
+      setErrorMessage("");
+      setSuccessMessage("");
+
+      if (!file) throw new Error("No file provided");
+
+      // Some browsers do not set file.type reliably, so only check extension
+      if (!file.name.toLowerCase().endsWith(".json")) {
+        throw new Error("Please drop a valid .json file");
+      }
+
+      const text = await file.text();
+      const json = JSON.parse(text);
+
+      if (!validateBuild(json)) throw new Error("Invalid build JSON schema");
+
+      setBuild(json);
+      setSuccessMessage("Build Loaded");
+      setSeconds(0);
+      setRunning(false);
+    } catch (err) {
+      setErrorMessage(err.message || "Invalid JSON file");
+    }
+  }
+
   async function loadFromLink(url) {
     try {
       setLoadingLink(true);
@@ -244,6 +274,46 @@ export default function BuildAdvisor() {
             {loadingLink ? "Loading…" : "Load"}
           </button>
         </div>
+      </div>
+
+      
+
+      {/* NEW: Load build from local JSON file */}
+      <div className="mb-6">
+        <label className="block text-sm opacity-80 mb-1">Load build from local file</label>
+
+        {/* NEW: Drag-and-drop zone */}
+        <div
+          onDragOver={e => {
+            e.preventDefault();        // REQUIRED
+            setIsDragging(true);
+          }}
+          onDragLeave={() => setIsDragging(false)}
+          onDrop={e => {
+            e.preventDefault();        // REQUIRED
+            setIsDragging(false);
+
+            const file = e.dataTransfer.files?.[0];
+            if (file) {
+              loadFromFile(file);
+            }
+          }}
+          className={`mb-3 flex items-center justify-center rounded-xl border-2 border-dashed px-4 py-6 text-sm transition-all duration-200 ${
+            isDragging
+              ? "border-blue-400 bg-blue-900/30 scale-[1.02]"
+              : "border-neutral-700 bg-neutral-900 opacity-80"
+          }`}
+        >
+          Drag & drop a build JSON here
+        </div>
+
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="application/json"
+          onChange={e => e.target.files && loadFromFile(e.target.files[0])}
+          className="block w-full text-sm text-neutral-300 file:mr-4 file:rounded-xl file:border-0 file:bg-neutral-800 file:px-4 file:py-2 file:text-neutral-200 hover:file:bg-neutral-700"
+        />
       </div>
 
       <div className="mb-6">
