@@ -18,6 +18,7 @@
  */
 
 import React, { useEffect, useMemo, useState, useRef } from "react";
+import { Link } from 'react-router-dom';
 
 const DEFAULT_BUILD = {
   name: "Sample Terran Macro Opener",
@@ -231,6 +232,10 @@ export default function BuildAdvisor() {
         <h1 className="text-2xl font-bold">Build Advisor</h1>
         <p className="opacity-70">{build.name} • {build.race}</p>
       </header>
+
+      <Link to="/tutorial" className="px-4 py-2 rounded-xl bg-neutral-800 hover:bg-neutral-700">
+        Build JSON Tutorial
+      </Link>
 
       <div className="flex flex-wrap gap-2 mb-4 items-center">
         <button onClick={() => setRunning(true)} className="px-4 py-2 rounded-xl bg-green-600">Start</button>
